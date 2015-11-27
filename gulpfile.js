@@ -27,42 +27,40 @@ var resources = {
     images: ['images/**/*.jpg', 'images/**/*.png']
 };
 
-// Delete the dist directory
-gulp.task('clean', function() {
-    return gulp.src(path.dist, { read: false }) // much faster
-        .pipe(rimraf());
-});
 
 //Lint Task
-gulp.task('lint', ['clean'], function() {
+gulp.task('lint', ['clean_js'], function() {
     return gulp.src(resources.scripts)
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 // Compile Our Sass
-gulp.task('styles', ['clean'], function() {
+gulp.task('styles', ['clean_styles'], function() {
     return gulp.src(resources.scss, {cwd: path.app})
         .pipe(sass())
         .pipe(gulp.dest(path.dist + 'css'))
         .pipe(browserSync.stream());
 });
+gulp.task('clean_styles', function() {
+    return gulp.src(path.dist + 'css', { read: false }).pipe(rimraf());
+});
 
 // Concatenate & Minify App JS
-gulp.task('scripts', ['clean', 'lint'], function() {
-    gulp.src(resources.scripts)
+gulp.task('scripts', ['clean_js', 'lint'], function() {
+    return gulp.src(resources.scripts, {cwd: path.app})
         .pipe(concat('app.js'))
         .pipe(gulp.dest(path.dist + 'js'))
         .pipe(rename('app.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest(path.dist + 'js'));
+        .pipe(gulp.dest(path.dist + 'js')) &&
 
     gulp.src(resources.vendor_header)
         .pipe(concat('vendor_header.js'))
         .pipe(gulp.dest(path.dist + 'js'))
         .pipe(rename('vendor_header.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest(path.dist + 'js'));
+        .pipe(gulp.dest(path.dist + 'js')) &&
 
     gulp.src(resources.vendor_footer)
         .pipe(concat('vendor_footer.js'))
@@ -71,16 +69,28 @@ gulp.task('scripts', ['clean', 'lint'], function() {
         .pipe(uglify())
         .pipe(gulp.dest(path.dist + 'js'));
 });
+gulp.task('clean_js', function() {
+    return gulp.src(path.dist + 'js', { read: false }).pipe(rimraf());
+});
 
 // Copy all other files to dist directly
-gulp.task('copy', ['clean'], function() {
+gulp.task('copy_html', ['clean_html'], function() {
     // Copy main html
-    gulp.src(resources.html, {cwd: path.app})
-        .pipe(gulp.dest(path.dist));
+    return gulp.src(resources.html, {cwd: path.app})
+        .pipe(gulp.dest(path.dist)) &&
 
     // Copy html templates
     gulp.src(resources.templates, {cwd: path.app})
         .pipe(gulp.dest(path.dist + 'templates'));
+});
+gulp.task('clean_html', function() {
+    // Delete main html
+    return gulp.src(path.dist + resources.html, { read: false })
+        .pipe(rimraf()) &&
+
+    //Delete html templates
+    gulp.src(path.dist + 'templates', { read: false })
+        .pipe(rimraf());
 });
 
 // Static server
@@ -91,14 +101,27 @@ gulp.task('browser-sync', function() {
         },
         open: false
     });
-    gulp.watch("app/scss/**/*.scss", ['styles']);
-    //gulp.watch("app/**/*.html", ['copy']).on('change', browserSync.reload);
+
+    gulp.watch(path.app + '**/*.scss', ['styles']).on('change', reportChange);
+    gulp.watch(path.app + '**/*.html', ['copy_html', browserSync.reload]).on('change', reportChange);
+    gulp.watch(path.app + '**/*.js', ['scripts', browserSync.reload]).on('change', reportChange);
 });
 
-gulp.task('watch', function() {
-    gulp.watch(path.app + '**/*.*', ['lint', 'scripts', 'copy']);
-});
+//gulp.task('watch', function() {
+    //gulp.watch(path.app + '**/*.html', ['copy_html']);
+    //gulp.watch(path.app + '**/*.scss', ['styles']);
+    //gulp.watch(path.app + '**/*.js', ['scripts']);
+//});
 
 
 // Default Task
-gulp.task('default', ['lint', 'styles', 'scripts', 'copy', 'watch', 'browser-sync']);
+gulp.task('default', ['lint', 'styles', 'scripts', 'copy_html', 'browser-sync']);
+
+
+
+function reportChange(event){
+    var files = event.path.split('/');
+    var file = files.pop();
+    console.log('\n----------------------------------------------');
+    console.log('File ' + file + ' was ' + event.type + ':');
+}
