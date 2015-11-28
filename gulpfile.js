@@ -18,9 +18,20 @@ var path = {
 };
 
 var resources = {
-    scripts: ['js/app.js', 'js/**/*.module.js', 'js/**/*.js'],
-    vendor_header: ['bower_components/angular/angular.js'],
-    vendor_footer: [],
+    scripts: [
+        'js/app.js',
+        'js/**/*.module.js',
+        'js/**/*.js'
+    ],
+    vendor_header: [
+        'bower_components/angular/angular.min.js',
+        'bower_components/angular-route/angular-route.min.js'
+    ],
+    vendor_footer: [
+        'bower_components/jquery/dist/jquery.min.js',
+        'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+        'bower_components/abdmob/x2js/xml2json.min.js'
+    ],
     scss: ['scss/**/*.scss'],
     html: ['index.html'],
     templates: ['js/**/*.html'],
@@ -52,7 +63,7 @@ gulp.task('scripts', ['clean_js', 'lint'], function() {
         .pipe(concat('app.js'))
         .pipe(gulp.dest(path.dist + 'js'))
         .pipe(rename('app.min.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest(path.dist + 'js')) &&
 
     gulp.src(resources.vendor_header)

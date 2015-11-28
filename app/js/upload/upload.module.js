@@ -1,4 +1,4 @@
 (function() {
     angular
-        .module('app.upload');
+        .module('app.upload', []);
 })();

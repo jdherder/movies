@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Application Version</key><string>12.3.1.23</string>
+	<key>Date</key><date>2015-11-27T22:12:57Z</date>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Library Persistent ID</key><string>08B95E8FD92F9B79</string>
+	<key>Tracks</key>
+	<dict>
+		<key>47186</key>
+		<dict>
+			<key>Track ID</key><integer>47186</integer>
+			<key>Size</key><integer>1290034548</integer>
+			<key>Total Time</key><integer>7294507</integer>
+			<key>Year</key><integer>2015</integer>
+			<key>Date Modified</key><date>2015-11-15T05:13:52Z</date>
+			<key>Date Added</key><date>2015-11-15T05:14:42Z</date>
+			<key>Bit Rate</key><integer>151</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3530898760</integer>
+			<key>Play Date UTC</key><date>2015-11-21T03:12:40Z</date>
+			<key>Release Date</key><date>2015-06-05T11:00:00Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>D1C1F9A679E68171</string>
+			<key>Track Type</key><string>File</string>
+			<key>Movie</key><true/>
+			<key>Has Video</key><true/>
+			<key>File Type</key><integer>1295275552</integer>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Love &#38; Mercy</string>
+			<key>Artist</key><string>Paul Dano, John Cusack, Paul Giamatti, Elizabeth Banks, Kenny Wormald, Jake Abel, Erin Darke, Joanna Going, Brett Davern, Graham Rogers, Dee Wallace</string>
+			<key>Genre</key><string>Drama</string>
+			<key>Kind</key><string>MPEG-4 video file</string>
+			<key>Location</key><string>file:///Volumes/Macintosh%20HD/Users/jdherder/Music/iTunes/iTunes%20Media/Movies/Love%20&#38;%20Mercy/Love%20&#38;%20Mercy.m4v</string>
+		</dict>
+		<key>47188</key>
+		<dict>
+			<key>Track ID</key><integer>47188</integer>
+			<key>Size</key><integer>1375053078</integer>
+			<key>Total Time</key><integer>5714801</integer>
+			<key>Year</key><integer>1981</integer>
+			<key>Date Modified</key><date>2015-11-15T05:14:26Z</date>
+			<key>Date Added</key><date>2015-11-15T05:14:42Z</date>
+			<key>Bit Rate</key><integer>160</integer>
+			<key>Release Date</key><date>1981-12-24T11:00:00Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>EBBE071FE1D2614C</string>
+			<key>Track Type</key><string>File</string>
+			<key>Movie</key><true/>
+			<key>Has Video</key><true/>
+			<key>File Type</key><integer>1295275552</integer>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Mad Max 2: The Road Warrior</string>
+			<key>Artist</key><string>Mel Gibson, Bruce Spence, Michael Preston, Max Phipps, Vernon Wells, Kjell Nilsson, Emil Minty, Virginia Hey, William Zappa, Arkie Whiteley, Steve J. Spears, Syd Heylen, Moira Claux, David Downer, David Slingsby, Kristoffer Greaves, Max Fairchild, Tyler C</string>
+			<key>Genre</key><string>Adventure</string>
+			<key>Kind</key><string>MPEG-4 video file</string>
+			<key>Content Rating</key><string>mpaa|R|400|</string>
+			<key>Location</key><string>file:///Volumes/Macintosh%20HD/Users/jdherder/Music/iTunes/iTunes%20Media/Movies/Mad%20Max%202_%20The%20Road%20Warrior/Mad%20Max%202_%20The%20Road%20Warrior.m4v</string>
+		</dict>
+		<key>47170</key>
+		<dict>
+			<key>Track ID</key><integer>47170</integer>
+			<key>Size</key><integer>1443449278</integer>
+			<key>Total Time</key><integer>7223191</integer>
+			<key>Year</key><integer>2015</integer>
+			<key>Date Modified</key><date>2015-11-07T03:00:10Z</date>
+			<key>Date Added</key><date>2015-11-07T03:00:15Z</date>
+			<key>Bit Rate</key><integer>160</integer>
+			<key>Release Date</key><date>2015-05-15T11:00:00Z</date>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>899EFDDEAF06C2B9</string>
+			<key>Track Type</key><string>File</string>
+			<key>Movie</key><true/>
+			<key>Has Video</key><true/>
+			<key>File Type</key><integer>1295275552</integer>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Mad Max: Fury Road</string>
+			<key>Artist</key><string>Tom Hardy, Charlize Theron, Hugh Keays-Byrne, Nicholas Hoult, Josh Helman, Rosie Huntington-Whiteley, Zoë Kravitz, Riley Keough, Nathan Jones, Richard Norton, Abbey Lee, Courtney Eaton, Megan Gale, Melissa Jaffer, Richard Carter, John Howard, Angus Samps</string>
+			<key>Genre</key><string>Thriller</string>
+			<key>Kind</key><string>MPEG-4 video file</string>
+			<key>Content Rating</key><string>mpaa|R|400|</string>
+			<key>Location</key><string>file:///Volumes/Macintosh%20HD/Users/jdherder/Music/iTunes/iTunes%20Media/Movies/Mad%20Max_%20Fury%20Road/Mad%20Max_%20Fury%20Road.m4v</string>
+		</dict>
+	<key>Music Folder</key><string>file:///Volumes/Macintosh%20HD/Users/jdherder/Music/iTunes/iTunes%20Media/</string>
+</dict>
+</plist>

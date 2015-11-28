@@ -1,8 +1,12 @@
 
 @import 'bower_components/bootstrap-sass/assets/stylesheets/_bootstrap';
 
-$grey: #797;
+$bgcolor: #797;
 
 body {
-  background: $grey;
+  background: $bgcolor;
+}
+
+.view {
+  margin-top: 65px;
 }

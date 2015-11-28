@@ -18,12 +18,14 @@
 
     <body>
 
-        <div ng-app="app"></div>
-
-        <div class="container">
-            <h1>Testing</h1>
+        <div ng-app="app">
+            <navigation></navigation>
+            <div class="container view">
+                <div ng-view></div>
+            </div>
         </div>
 
+        <script src="js/vendor_footer.min.js"></script>
         <script src="js/app.min.js"></script>
 
     </body>
