@@ -1,5 +1,17 @@
-<p>Testing 1</p>
-<p>Testing 2</p>
+<h1>Upload iTunes XML</h1>
 
-<input type="file" id="file" name="file"/>
-<button ng-click="vm.add()">Add</button>
+<div class="row">
+    <div class="col-md-12">
+        <input type="file" id="file" name="file"/>
+        <br />
+        <button ng-click="vm.add()" class="btn btn-default">Add</button>
+    </div>
+</div>
+
+<p ng-show="vm.uploadStatus.loading && !vm.uploadStatus.errors.status" class="bg-info">Loading...</p>
+<p ng-show="vm.uploadStatus.errors.status" class="bg-danger">{{ vm.uploadStatus.errors.msg }}</p>
+<p ng-show="vm.uploadStatus.success.status" class="bg-success">{{ vm.uploadStatus.success.msg }}</p>
+
+<div ng-repeat="movie in vm.movies">
+    <p>{{movie.Name}}</p>
+</div>

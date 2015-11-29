@@ -30,7 +30,7 @@ var resources = {
     vendor_footer: [
         'bower_components/jquery/dist/jquery.min.js',
         'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
-        'bower_components/abdmob/x2js/xml2json.min.js'
+        'bower_components/lodash/lodash.min.js'
     ],
     scss: ['scss/**/*.scss'],
     html: ['index.html'],

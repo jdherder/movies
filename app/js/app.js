@@ -2,8 +2,10 @@
     angular
         .module('app', [
             'ngRoute',
-            'app.upload'
+            'app.upload',
+            'app.list'
         ])
+        .constant('_', window._)
         .config(['$routeProvider',
             function($routeProvider) {
                 $routeProvider.
@@ -12,8 +14,13 @@
                     controller: 'UploadController',
                     controllerAs: 'vm'
                 }).
+                when('/list', {
+                    templateUrl: 'templates/list/list.html',
+                    controller: 'ListController',
+                    controllerAs: 'vm'
+                }).
                 otherwise({
-                    redirectTo: '/upload'
+                    redirectTo: '/list'
                 });
             }]);
 })();

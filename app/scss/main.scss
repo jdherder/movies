@@ -1,7 +1,7 @@
 
 @import 'bower_components/bootstrap-sass/assets/stylesheets/_bootstrap';
 
-$bgcolor: #797;
+$bgcolor: #FFF;
 
 body {
   background: $bgcolor;
@@ -9,4 +9,8 @@ body {
 
 .view {
   margin-top: 65px;
+}
+
+p {
+  margin: 10px 0 10px 0;
 }
