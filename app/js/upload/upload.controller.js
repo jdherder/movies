@@ -5,7 +5,7 @@
 
     //UploadController.$inject = [];
 
-    function UploadController($scope) {
+    function UploadController($scope, uploadService) {
         var vm = this;
 
         vm.uploadStatus = {
@@ -21,7 +21,7 @@
         };
         vm.movies = [];
 
-        vm.add = function(){
+        vm.process = function(){
             vm.uploadStatus.loading = true;
             vm.uploadStatus.errors.status = false;
             vm.movies = [];
@@ -88,7 +88,11 @@
 
             };
             r.readAsBinaryString(f);
-        }
+        };
+
+        vm.upload = function() {
+            uploadService.upload(vm.movies);
+        };
     }
 
 })();

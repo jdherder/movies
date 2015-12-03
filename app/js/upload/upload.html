@@ -1,16 +1,15 @@
 <h1>Upload iTunes XML</h1>
 
-<div class="row">
-    <div class="col-md-12">
-        <input type="file" id="file" name="file"/>
-        <br />
-        <button ng-click="vm.add()" class="btn btn-default">Add</button>
-    </div>
-</div>
 
-<p ng-show="vm.uploadStatus.loading && !vm.uploadStatus.errors.status" class="bg-info">Loading...</p>
-<p ng-show="vm.uploadStatus.errors.status" class="bg-danger">{{ vm.uploadStatus.errors.msg }}</p>
-<p ng-show="vm.uploadStatus.success.status" class="bg-success">{{ vm.uploadStatus.success.msg }}</p>
+<input type="file" id="file" name="file" class="file-upload" />
+<button ng-click="vm.process()" class="btn btn-default file-upload">Process</button>
+
+<div ng-show="vm.uploadStatus.loading && !vm.uploadStatus.errors.status" class="alert alert-info">Loading...</div>
+<div ng-show="vm.uploadStatus.errors.status" class="alert alert-danger">{{ vm.uploadStatus.errors.msg }}</div>
+<div ng-show="vm.uploadStatus.success.status" class="alert alert-success clearfix">
+    <p class="pull-left">{{ vm.uploadStatus.success.msg }}</p>
+    <button ng-click="vm.upload()" class="btn btn-default btn-success pull-right">Upload</button>
+</div>
 
 <div ng-repeat="movie in vm.movies">
     <p>{{movie.Name}}</p>
