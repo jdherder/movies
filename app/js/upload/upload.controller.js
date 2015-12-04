@@ -91,7 +91,11 @@
         };
 
         vm.upload = function() {
-            uploadService.upload(vm.movies);
+            vm.uploadStatus.loading = true;
+            uploadService.upload(vm.movies).then(function(data) {
+                console.log(data);
+                vm.uploadStatus.loading = false;
+            });
         };
     }
 

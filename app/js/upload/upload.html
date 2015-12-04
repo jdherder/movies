@@ -6,7 +6,7 @@
 
 <div ng-show="vm.uploadStatus.loading && !vm.uploadStatus.errors.status" class="alert alert-info">Loading...</div>
 <div ng-show="vm.uploadStatus.errors.status" class="alert alert-danger">{{ vm.uploadStatus.errors.msg }}</div>
-<div ng-show="vm.uploadStatus.success.status" class="alert alert-success clearfix">
+<div ng-show="vm.uploadStatus.success.status && !vm.uploadStatus.loading" class="alert alert-success clearfix">
     <p class="pull-left">{{ vm.uploadStatus.success.msg }}</p>
     <button ng-click="vm.upload()" class="btn btn-default btn-success pull-right">Upload</button>
 </div>

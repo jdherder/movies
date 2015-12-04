@@ -35,7 +35,8 @@ var resources = {
     scss: ['scss/**/*.scss'],
     html: ['index.html'],
     templates: ['js/**/*.html'],
-    images: ['images/**/*.jpg', 'images/**/*.png']
+    images: ['images/**/*.jpg', 'images/**/*.png'],
+    api: ['api/**/*.php']
 };
 
 
@@ -92,7 +93,10 @@ gulp.task('copy_html', ['clean_html'], function() {
 
     // Copy html templates
     gulp.src(resources.templates, {cwd: path.app})
-        .pipe(gulp.dest(path.dist + 'templates'));
+        .pipe(gulp.dest(path.dist + 'templates')) &&
+
+    gulp.src(resources.api, {cwd: path.app})
+        .pipe(gulp.dest(path.dist + 'api'));
 });
 gulp.task('clean_html', function() {
     // Delete main html
@@ -101,6 +105,9 @@ gulp.task('clean_html', function() {
 
     //Delete html templates
     gulp.src(path.dist + 'templates', { read: false })
+        .pipe(rimraf()) &&
+
+    gulp.src(path.dist + 'api', { read: false })
         .pipe(rimraf());
 });
 
@@ -115,6 +122,7 @@ gulp.task('browser-sync', function() {
 
     gulp.watch(path.app + '**/*.scss', ['styles']).on('change', reportChange);
     gulp.watch(path.app + '**/*.html', ['copy_html', browserSync.reload]).on('change', reportChange);
+    gulp.watch(path.app + '**/*.php', ['copy_html', browserSync.reload]).on('change', reportChange);
     gulp.watch(path.app + '**/*.js', ['scripts', browserSync.reload]).on('change', reportChange);
 });
 
