@@ -8,21 +8,17 @@
     function UploadController($scope, uploadService) {
         var vm = this;
 
-        vm.uploadStatus = {
-            loading: false,
-            errors: {
-                status: false,
-                msg: ''
-            },
-            success: {
-                status: false,
-                msg: ''
-            }
-        };
+        vm.uploadStatus = new StatusObj();
+
         vm.movies = [];
 
-        vm.process = function(){
-            vm.uploadStatus.loading = true;
+        vm.process = process;
+        vm.upload = upload;
+
+
+        function process (){
+            vm.uploadStatus.loading.status = true;
+            vm.uploadStatus.loading.msg = 'Parsing file...';
             vm.uploadStatus.errors.status = false;
             vm.movies = [];
             var f = document.getElementById('file').files[0],
@@ -80,8 +76,9 @@
 
                 vm.uploadStatus.success.status = true;
                 vm.uploadStatus.success.msg = 'Successfully found ' + vm.movies.length + ' movies in ' + f.name;
+                vm.uploadStatus.success.showBtn = true;
 
-                vm.uploadStatus.loading = false;
+                vm.uploadStatus.loading.status = false;
 
                 //manually trigger AngularJS digest cycle
                 $scope.$apply();
@@ -90,13 +87,40 @@
             r.readAsBinaryString(f);
         };
 
-        vm.upload = function() {
-            vm.uploadStatus.loading = true;
-            uploadService.upload(vm.movies).then(function(data) {
-                console.log(data);
-                vm.uploadStatus.loading = false;
-            });
+        function upload () {
+            vm.uploadStatus.loading.status = true;
+            vm.uploadStatus.loading.msg = 'Sending data to server...';
+            uploadService.upload(vm.movies)
+                .then(function(data) {
+                    console.log(data);
+                    vm.uploadStatus.loading.status = false;
+
+                    vm.uploadStatus.success.status = true;
+                    vm.uploadStatus.success.msg = 'Successfully uploaded movies to server!';
+                    vm.uploadStatus.success.showBtn = false;
+                })
+                .catch(function(data) {
+                    vm.uploadStatus.errors.status = true;
+                    vm.uploadStatus.errors.msg = 'There was a problem submitting your data to the server!';
+                    console.log(data);
+                });
         };
+
+        function StatusObj() {
+            this.loading = {
+                status: false,
+                msg: ''
+            };
+            this.errors = {
+                status: false,
+                msg: ''
+            };
+            this.success = {
+                status: false,
+                msg: '',
+                showBtn: false
+            };
+        }
     }
 
 })();

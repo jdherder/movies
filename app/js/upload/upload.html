@@ -4,13 +4,19 @@
 <input type="file" id="file" name="file" class="file-upload" />
 <button ng-click="vm.process()" class="btn btn-default file-upload">Process</button>
 
-<div ng-show="vm.uploadStatus.loading && !vm.uploadStatus.errors.status" class="alert alert-info">Loading...</div>
-<div ng-show="vm.uploadStatus.errors.status" class="alert alert-danger">{{ vm.uploadStatus.errors.msg }}</div>
-<div ng-show="vm.uploadStatus.success.status && !vm.uploadStatus.loading" class="alert alert-success clearfix">
+<div ng-show="vm.uploadStatus.loading.status && !vm.uploadStatus.errors.status" class="alert alert-info">
+    {{vm.uploadStatus.loading.msg}}
+</div>
+
+<div ng-show="vm.uploadStatus.errors.status" class="alert alert-danger">
+    {{ vm.uploadStatus.errors.msg }}
+</div>
+
+<div ng-show="vm.uploadStatus.success.status && !vm.uploadStatus.loading.status" class="alert alert-success clearfix">
     <p class="pull-left">{{ vm.uploadStatus.success.msg }}</p>
-    <button ng-click="vm.upload()" class="btn btn-default btn-success pull-right">Upload</button>
+    <button ng-show="vm.uploadStatus.success.showBtn" ng-click="vm.upload()" class="btn btn-default btn-success pull-right">Upload</button>
 </div>
 
 <div ng-repeat="movie in vm.movies">
-    <p>{{movie.Name}}</p>
+    <p>{{$index+1}}) {{movie.Name}}</p>
 </div>

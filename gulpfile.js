@@ -35,7 +35,7 @@ var resources = {
     scss: ['scss/**/*.scss'],
     html: ['index.html'],
     templates: ['js/**/*.html'],
-    images: ['images/**/*.jpg', 'images/**/*.png'],
+    images: ['images/**/*.jpg', 'images/**/*.png', 'images/**/*.gif'],
     api: ['api/**/*.php']
 };
 
@@ -111,6 +111,15 @@ gulp.task('clean_html', function() {
         .pipe(rimraf());
 });
 
+gulp.task('copy_images', ['clean_images'], function() {
+    return gulp.src(resources.images, {cwd: path.app})
+            .pipe(gulp.dest(path.dist + 'images'));
+});
+gulp.task('clean_images', function() {
+    return gulp.src(path.dist + 'images', { read: false })
+            .pipe(rimraf());
+});
+
 // Static server
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -134,7 +143,7 @@ gulp.task('browser-sync', function() {
 
 
 // Default Task
-gulp.task('default', ['lint', 'styles', 'scripts', 'copy_html', 'browser-sync']);
+gulp.task('default', ['lint', 'styles', 'scripts', 'copy_html', 'copy_images', 'browser-sync']);
 
 
 
