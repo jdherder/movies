@@ -13,7 +13,7 @@
         init();
 
         function init () {
-            listService.getMovies()
+            listService.getMoviesTest()
                 .then(function(response) {
                     vm.movieList = response.data.movies;
                 })
