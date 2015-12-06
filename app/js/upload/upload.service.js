@@ -9,7 +9,7 @@
      * @ngInject
      */
 
-    function uploadService ($http) {
+    function uploadService ($http, getUsername) {
 
         var uploadObj = {
             upload: upload
@@ -38,12 +38,7 @@
                 movies: movieList
             };
 
-            var pathPcs = movieList[0].Location.split('/');
-            var userIndex = _.findIndex(pathPcs, function(pc) {
-                return pc === 'Users';
-            });
-
-            payload.name = userIndex === -1 ? 'unknown' : pathPcs[userIndex + 1];
+            payload.name = getUsername.parsePath(movieList[0].Location);
 
             return payload;
         }
