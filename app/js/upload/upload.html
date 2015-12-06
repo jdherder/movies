@@ -1,8 +1,24 @@
 <h1>Upload iTunes XML</h1>
 
+<div ng-show="vm.step === 1">
+    <h3>Step 1</h3>
+    <p>Select your iTunes Music Library.xml file, usually located in user/music/iTunes/, then click 'Process'.</p>
 
-<input type="file" id="file" name="file" class="file-upload" />
-<button ng-click="vm.process()" class="btn btn-default file-upload">Process</button>
+    <input type="file" id="file" name="file" class="file-upload" />
+    <button ng-click="vm.process()" class="btn btn-default file-upload">Process</button>
+</div>
+
+<div ng-show="vm.step === 2">
+    <h3>Step 2</h3>
+    <p>Take a quick look at the movies parsed from your iTunes file below, then click 'Upload' to send them to the server.</p>
+    <p><strong>Note</strong>: Any existing movies under your username ({{ vm.name }}) will be deleted before these are added.</p>
+</div>
+
+<div ng-show="vm.step === 3">
+    <h3>All Done!</h3>
+    <p>Head on over to the 'List' page to see your uploaded list along with everyone else's.</p>
+</div>
+
 
 <div ng-show="vm.uploadStatus.loading.status && !vm.uploadStatus.errors.status" class="alert alert-info">
     {{vm.uploadStatus.loading.msg}}

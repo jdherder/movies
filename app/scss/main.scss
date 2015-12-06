@@ -11,6 +11,12 @@ body {
   margin-top: 65px;
 }
 
+h1 {
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
 p {
   margin: 10px 0 10px 0;
 }
@@ -22,8 +28,13 @@ p {
 .movieTable {
   width: 100%;
   max-width: 1024px;
+
   th, td {
     padding: 3px;
     border-bottom: 1px solid #EEE;
+  }
+
+  .headers {
+    background: #DDD;
   }
 }

@@ -13,6 +13,7 @@
         init();
 
         function init () {
+            //use getMoviesTest when developing locally without PHP server.
             listService.getMoviesTest()
                 .then(function(response) {
                     vm.movieList = response.data.movies;

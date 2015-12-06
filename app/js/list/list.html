@@ -3,7 +3,12 @@
 <div>
     <p>Search: <input ng-model="searchText" type="text" /></p>
     <table class="movieTable">
-        <tr ng-repeat="movie in vm.movieList | filter:searchText:strict"">
+        <tr class="headers">
+            <th>Title</th>
+            <th>Year</th>
+            <th>Owners</th>
+        </tr>
+        <tr ng-repeat="movie in vm.movieList | filter:searchText:strict">
             <th>{{movie.movie}}</th>
             <td>{{movie.year}}</td>
             <td>{{movie.names}}</td>

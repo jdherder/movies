@@ -5,10 +5,11 @@
 
     //UploadController.$inject = [];
 
-    function UploadController($scope, uploadService) {
+    function UploadController($scope, uploadService, getUsername) {
         var vm = this;
 
         vm.uploadStatus = new StatusObj();
+        vm.step = 1;
 
         vm.movies = [];
 
@@ -74,9 +75,12 @@
                 //sort movies array by Name property of contained objects
                 vm.movies = _.sortBy(vm.movies, 'Name');
 
+                vm.name = getUsername.parsePath(vm.movies[0].Location);
+
                 vm.uploadStatus.success.status = true;
                 vm.uploadStatus.success.msg = 'Successfully found ' + vm.movies.length + ' movies in ' + f.name;
                 vm.uploadStatus.success.showBtn = true;
+                vm.step = 2;
 
                 vm.uploadStatus.loading.status = false;
 
@@ -92,12 +96,12 @@
             vm.uploadStatus.loading.msg = 'Sending data to server...';
             uploadService.upload(vm.movies)
                 .then(function(data) {
-                    console.log(data);
                     vm.uploadStatus.loading.status = false;
 
                     vm.uploadStatus.success.status = true;
                     vm.uploadStatus.success.msg = 'Successfully uploaded movies to server!';
                     vm.uploadStatus.success.showBtn = false;
+                    vm.step = 3;
                 })
                 .catch(function(data) {
                     vm.uploadStatus.errors.status = true;
