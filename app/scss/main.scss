@@ -18,3 +18,12 @@ p {
 .file-upload {
   margin: 5px 0 10px 0;
 }
+
+.movieTable {
+  width: 100%;
+  max-width: 1024px;
+  th, td {
+    padding: 3px;
+    border-bottom: 1px solid #EEE;
+  }
+}

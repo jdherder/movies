@@ -24,7 +24,7 @@
 
             var promise = $http({
                 method: 'POST',
-                url: '/api/upload.php',
+                url: 'api/upload.php',
                 data: {data: payload}
             }).then(function successCallback(response) {
                 return response.data;

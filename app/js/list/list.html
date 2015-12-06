@@ -1,1 +1,11 @@
 <h1>Movie List</h1>
+
+<div>
+    <table class="movieTable">
+        <tr ng-repeat="movie in vm.movieList">
+            <th>{{movie.movie}}</th>
+            <td>{{movie.year}}</td>
+            <td>{{movie.names}}</td>
+        </tr>
+    </table>
+</div>
