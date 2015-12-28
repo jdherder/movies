@@ -5,10 +5,6 @@
         .module('app')
         .factory('getUsername', getUsername);
 
-    /*
-     * @ngInject
-     */
-
     function getUsername () {
 
         var obj = {

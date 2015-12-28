@@ -64,7 +64,7 @@ gulp.task('scripts', ['clean_js', 'lint'], function() {
         .pipe(concat('app.js'))
         .pipe(gulp.dest(path.dist + 'js'))
         .pipe(rename('app.min.js'))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(gulp.dest(path.dist + 'js')) &&
 
     gulp.src(resources.vendor_header)

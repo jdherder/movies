@@ -5,9 +5,7 @@
         .module('app.upload')
         .factory('uploadService', uploadService);
 
-    /*
-     * @ngInject
-     */
+    uploadService.$inject = ['$http', 'getUsername'];
 
     function uploadService ($http, getUsername) {
 

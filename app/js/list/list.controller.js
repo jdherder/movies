@@ -3,7 +3,7 @@
         .module('app.list')
         .controller('ListController', ListController);
 
-    //ListController.$inject = [];
+    ListController.$inject = ['$scope', 'listService'];
 
     function ListController($scope, listService) {
         var vm = this;
@@ -14,7 +14,7 @@
 
         function init () {
             //use getMoviesTest when developing locally without PHP server.
-            listService.getMovies()
+            listService.getMoviesTest()
                 .then(function(response) {
                     vm.movieList = response.data.movies;
                 })

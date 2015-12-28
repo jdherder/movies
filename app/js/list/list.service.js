@@ -5,9 +5,7 @@
         .module('app.list')
         .factory('listService', listService);
 
-    /*
-     * @ngInject
-     */
+    listService.$inject = ['$http', '$q'];
 
     function listService ($http, $q) {
 
