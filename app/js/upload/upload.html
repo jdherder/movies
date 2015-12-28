@@ -11,7 +11,9 @@
 <div ng-show="vm.step === 2">
     <h3>Step 2</h3>
     <p>Take a quick look at the movies parsed from your iTunes file below, then click 'Upload' to send them to the server.</p>
-    <p><strong>Note</strong>: Any existing movies under your username ({{ vm.name }}) will be deleted before these are added.</p>
+    <div class="alert alert-warning">
+        <strong>Note</strong>: Any existing movies under the username found in this iTunes file (<strong>{{ vm.name }}</strong>) will be deleted before these are added.</p>
+    </div>
 </div>
 
 <div ng-show="vm.step === 3">
