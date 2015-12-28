@@ -3,7 +3,7 @@
         .module('app.upload')
         .controller('UploadController', UploadController);
 
-    //UploadController.$inject = [];
+    UploadController.$inject = ['$scope', 'uploadService', 'getUsername'];
 
     function UploadController($scope, uploadService, getUsername) {
         var vm = this;
@@ -52,7 +52,7 @@
                         //remove spaces in <key>
                         keyName = keyName.replace(/\s+/g, '');
 
-                        //if the next simbling of <key> has no value, treat node as boolean (eg convert <true></true>)
+                        //if the next sibling of <key> has no value, treat node as boolean (eg convert <true></true>)
                         if (_.isEmpty(keyValue)) {
                             keyValue = !!key.nextSibling.nodeName;
                         }
